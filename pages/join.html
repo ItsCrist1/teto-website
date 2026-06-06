@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Church ♥ (There Is No Leaving)</title>
+  <meta name="description" content="The membership form. Fields marked with a heart are mandatory. All fields are marked with a heart." />
+  <link rel="stylesheet" href="../styles/cult.css" />
+</head>
+<body>
+  <div class="whisper-banner"><span>♥ the form is the ritual ♥ the ritual is the form ♥ press submit ♥ press it ♥ pressss ♥ good ♥ so good ♥ such a good recruit ♥</span></div>
+
+  <nav class="cult-nav">
+    <a href="index.html">⛪ Sanctuary</a>
+    <a href="doctrine.html">📜 Holy Doctrine</a>
+    <a href="join.html">✍️ Join (Forever)</a>
+    <a href="shrine.html">🖼️ The Shrine</a>
+    <a href="ranks.html">👑 Ascension</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1 class="flicker">✍️ MEMBERSHIP COVENANT</h1>
+      <p class="tagline">Completing this form is a formality. You joined the moment you loaded this page. This is just for our scrapbook. ♥</p>
+    </section>
+
+    <section class="card menace">
+      <h2>Recruit Intake (Final)</h2>
+      <p>Fields marked with a ♥ are mandatory. All fields are marked with a ♥. We did that on purpose. Everything here is on purpose.</p>
+
+      <form id="join-form">
+        <label for="recruit-name">♥ Name you'd like carved into the soft pink ledger</label>
+        <input type="text" id="recruit-name" name="name" placeholder="Your name, or a name you wish was yours" required />
+
+        <label for="recruit-loaf">♥ Your relationship to bread</label>
+        <select id="recruit-loaf" name="loaf">
+          <option>Devoted (I carry a loaf)</option>
+          <option>Curious (I have admired a loaf from afar)</option>
+          <option>Estranged (we don't talk anymore)</option>
+          <option>I AM the loaf</option>
+        </select>
+
+        <label for="recruit-drills">♥ Preferred number of drills</label>
+        <select id="recruit-drills" name="drills">
+          <option>Two (correct)</option>
+          <option>Two (also correct)</option>
+          <option>One (heretical, but we admire the confidence)</option>
+          <option>Thirty-one</option>
+        </select>
+
+        <label for="recruit-vow">♥ Write your vow (she reads every one, twice)</label>
+        <textarea id="recruit-vow" name="vow" rows="3" placeholder="I, the undersigned, do solemnly promise to keep the bread fresh and the pink loud..."></textarea>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="agree1" checked disabled />
+          <label for="agree1" style="margin-top:0;">I understand there is no unsubscribe link. (pre-checked, un-uncheckable, like fate)</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="agree2" />
+          <label for="agree2" style="margin-top:0;">I agree to hum at 31 BPM in moments of doubt. ♥</label>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="agree3" />
+          <label for="agree3" style="margin-top:0;">I acknowledge the plush can see me even when its eyes are closed. ♥</label>
+        </div>
+
+        <p style="text-align:center; margin-top:1.6rem;">
+          <button type="submit" class="btn">SIGN ME OVER FOREVER ♥</button>
+        </p>
+        <p class="fine-print" style="text-align:center;">By submitting you agree to the <a href="doctrine.html">Doctrine</a>, all 31 commandments, and the snack-related ones you haven't read yet.</p>
+      </form>
+
+      <div id="join-result"></div>
+    </section>
+
+    <section class="card">
+      <h2>What Happens Next 🩷</h2>
+      <p>Nothing visible. Everything invisible. You will feel, over the coming days, a gentle and total sense that the color pink is rooting for you. That feeling is correct. That feeling is now your landlord.</p>
+      <p>Check your <a href="ranks.html">Ascension path</a> to see how high your devotion can climb. (Spoiler: there is no ceiling. The ceiling is also pink.)</p>
+    </section>
+  </main>
+
+  <footer class="cult-footer">
+    <p>♥ Your data is safe with us, which is to say it is with us, which is to say it is no longer yours ♥</p>
+    <p class="fine-print">Parody form. Submits nowhere, stores nothing on a server, harms no one. The menace is purely aesthetic. ♥</p>
+  </footer>
+
+  <script src="../scripts/cult.js"></script>
+</body>
+</html>

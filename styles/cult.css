@@ -1,0 +1,348 @@
+/* ============================================================
+   THE CHURCH OF KASANE TETO — shared stylesheet
+   Primary: magenta. Secondary: pink. Mood: smiling knife.
+   ============================================================ */
+
+:root {
+  --magenta: #d6007f;
+  --magenta-deep: #8a0052;
+  --pink: #ff9ad5;
+  --pink-soft: #ffd6ee;
+  --pink-mist: #fff0f9;
+  --bone: #fffafd;
+  --ink: #3a0023;
+  --whisper: #b3367f;
+  --glow: 0 0 18px rgba(214, 0, 127, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Segoe UI", "Trebuchet MS", cursive, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 10%, var(--pink-soft), transparent 45%),
+    radial-gradient(circle at 80% 0%, var(--pink), transparent 40%),
+    linear-gradient(160deg, var(--pink-mist), var(--bone));
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* floating hearts in the background, because she is always watching */
+body::before {
+  content: "♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡ ♥ ♡";
+  position: fixed;
+  inset: 0;
+  color: rgba(255, 154, 213, 0.16);
+  font-size: 3rem;
+  letter-spacing: 2rem;
+  line-height: 5rem;
+  word-spacing: 1rem;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 40s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translateY(0) rotate(0deg); }
+  to   { transform: translateY(-200px) rotate(2deg); }
+}
+
+/* ---------- NAVIGATION (the offering bar) ---------- */
+.cult-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(90deg, var(--magenta-deep), var(--magenta), var(--magenta-deep));
+  box-shadow: 0 4px 24px rgba(138, 0, 82, 0.5);
+  border-bottom: 3px dashed var(--pink-soft);
+}
+
+.cult-nav a {
+  color: var(--pink-soft);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.cult-nav a:hover {
+  background: var(--pink);
+  color: var(--magenta-deep);
+  transform: scale(1.12) rotate(-2deg);
+  box-shadow: var(--glow);
+}
+
+.cult-nav a.active { background: var(--bone); color: var(--magenta-deep); }
+
+/* ---------- LAYOUT ---------- */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 2.2rem 1.4rem 5rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  color: var(--magenta);
+  text-shadow: 3px 3px 0 var(--pink), 6px 6px 0 rgba(214,0,127,0.25);
+  margin: 0.2rem 0;
+  letter-spacing: 1px;
+}
+
+h2 {
+  color: var(--magenta-deep);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  border-bottom: 3px dotted var(--pink);
+  padding-bottom: 0.3rem;
+  margin-top: 2.4rem;
+}
+
+h3 { color: var(--magenta); }
+
+a { color: var(--magenta); }
+
+p, li { font-size: 1.08rem; line-height: 1.7; }
+
+.tagline {
+  font-style: italic;
+  color: var(--whisper);
+  font-size: 1.2rem;
+}
+
+/* faint, unsettlingly small print */
+.fine-print {
+  font-size: 0.72rem;
+  color: var(--whisper);
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- CARDS / SHRINES ---------- */
+.card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 3px solid var(--pink);
+  border-radius: 22px;
+  padding: 1.4rem 1.6rem;
+  margin: 1.4rem 0;
+  box-shadow: 0 8px 28px rgba(214, 0, 127, 0.18);
+  backdrop-filter: blur(2px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) rotate(0.4deg);
+  box-shadow: 0 12px 36px rgba(214, 0, 127, 0.32);
+}
+
+.card.menace { border-color: var(--magenta); border-style: double; }
+
+/* the plush, our beloved idol */
+.idol {
+  width: clamp(180px, 40vw, 300px);
+  filter: drop-shadow(0 0 22px rgba(214,0,127,0.6));
+  animation: heartbeat 2.4s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  10%      { transform: scale(1.06) rotate(-1deg); }
+  20%      { transform: scale(1) rotate(1deg); }
+  50%      { transform: scale(1.03); }
+}
+
+.idol.watching { animation: heartbeat 2.4s ease-in-out infinite, sway 6s ease-in-out infinite; }
+@keyframes sway { 0%,100%{ transform: translateX(0);} 50%{ transform: translateX(14px);} }
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--magenta), var(--pink));
+  color: var(--bone);
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--glow);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover { transform: scale(1.08) rotate(-1.5deg); filter: brightness(1.1); }
+.btn:active { transform: scale(0.96); }
+
+/* ---------- BANNERS / WHISPERS ---------- */
+.whisper-banner {
+  text-align: center;
+  background: var(--magenta-deep);
+  color: var(--pink-soft);
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.whisper-banner span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollwhisper 18s linear infinite;
+}
+
+@keyframes scrollwhisper {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* text that flickers when she is displeased */
+.flicker { animation: flicker 4s infinite; }
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.3; }
+  94% { opacity: 1; }
+  96% { opacity: 0.2; }
+  97% { opacity: 1; }
+}
+
+.jitter:hover { animation: jitter 0.3s infinite; display: inline-block; }
+@keyframes jitter {
+  0%{transform:translate(0,0);} 25%{transform:translate(-2px,1px);}
+  50%{transform:translate(2px,-1px);} 75%{transform:translate(-1px,-2px);}
+  100%{transform:translate(1px,2px);}
+}
+
+/* ---------- LOYALTY METER ---------- */
+.meter-shell {
+  width: 100%;
+  height: 30px;
+  background: var(--pink-soft);
+  border: 3px solid var(--magenta);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0.6rem 0;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--magenta), var(--pink));
+  transition: width 0.6s cubic-bezier(.2,.9,.3,1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--bone);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+/* ---------- COUNTERS ---------- */
+.counter {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: var(--magenta);
+  text-shadow: 2px 2px 0 var(--pink);
+}
+
+/* ---------- FORMS ---------- */
+label { display: block; font-weight: bold; color: var(--magenta-deep); margin-top: 1rem; }
+input, select, textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--pink);
+  border-radius: 12px;
+  background: var(--bone);
+  margin-top: 0.3rem;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--magenta); box-shadow: var(--glow);
+}
+.checkbox-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 1rem; }
+.checkbox-row input { width: auto; }
+
+/* ---------- PROPHECY BOX ---------- */
+.prophecy {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--magenta-deep);
+  min-height: 3.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.gallery-grid .frame {
+  background: var(--bone);
+  border: 4px solid var(--pink);
+  border-radius: 16px;
+  padding: 0.8rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.gallery-grid .frame:hover { transform: rotate(-3deg) scale(1.04); border-color: var(--magenta); }
+.gallery-grid .frame svg, .gallery-grid .frame img { width: 100%; height: auto; }
+.gallery-grid .frame figcaption { font-size: 0.82rem; color: var(--whisper); margin-top: 0.4rem; }
+
+/* ---------- RANK TABLE ---------- */
+.rank {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.78);
+  border-left: 8px solid var(--magenta);
+  border-radius: 12px;
+  padding: 0.9rem 1.2rem;
+  margin: 0.7rem 0;
+}
+.rank .badge {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.rank h3 { margin: 0; }
+.rank p { margin: 0.2rem 0 0; font-size: 0.95rem; }
+
+/* ---------- FOOTER ---------- */
+.cult-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--whisper);
+  font-size: 0.85rem;
+  border-top: 3px dashed var(--pink);
+  margin-top: 3rem;
+}
+
+ul.bleeding { list-style: "♡ "; }
+ul.bleeding li { margin: 0.4rem 0; }
+
+::selection { background: var(--magenta); color: var(--pink-soft); }
